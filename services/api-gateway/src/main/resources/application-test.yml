@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:16:///farmmind?TC_INITSCRIPT=db/migration/V1__initial_schema.sql
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+  jpa:
+    hibernate:
+      ddl-auto: none
+  flyway:
+    enabled: false  # Testcontainers init script handles schema
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9999/test  # WireMock stub in integration tests
+
+app:
+  cognito:
+    user-pool-id: test-pool
+    client-id: test-client
+    client-secret: ""
+  rate-limit:
+    free-tier-monthly-questions: 10
+    free-tier-monthly-voice: 5
