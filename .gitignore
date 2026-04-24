@@ -1,0 +1,40 @@
+# Java
+target/
+*.class
+*.jar
+*.war
+.mvn/wrapper/maven-wrapper.jar
+
+# Node / Expo
+node_modules/
+.expo/
+dist/
+web-build/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+*.env
+
+# IDE
+.idea/
+.vscode/
+*.iml
+.DS_Store
+
+# AWS CDK
+cdk.out/
+infrastructure/cdk/node_modules/
+
+# Logs
+*.log
+logs/
+
+# Coverage
+coverage/
+target/site/
+
+# Docker
+.docker/

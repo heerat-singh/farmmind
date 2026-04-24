@@ -1,0 +1,62 @@
+spring:
+  application:
+    name: farmmind-api-gateway
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/farmmind}
+    username: ${SPRING_DATASOURCE_USERNAME:farmmind}
+    password: ${SPRING_DATASOURCE_PASSWORD:farmmind_dev}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+  data:
+    redis:
+      host: ${SPRING_REDIS_HOST:localhost}
+      port: ${SPRING_REDIS_PORT:6379}
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${AWS_COGNITO_ISSUER_URI:https://cognito-idp.ca-central-1.amazonaws.com/${AWS_COGNITO_USER_POOL_ID}}
+
+server:
+  port: 8080
+  error:
+    include-message: on-param
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when-authorized
+
+app:
+  cognito:
+    user-pool-id: ${AWS_COGNITO_USER_POOL_ID:local}
+    client-id: ${AWS_COGNITO_CLIENT_ID:local}
+    region: ${AWS_REGION:ca-central-1}
+  aws:
+    region: ${AWS_REGION:ca-central-1}
+    s3-bucket: ${AWS_S3_BUCKET_NAME:farmmind-uploads}
+  ai-service:
+    url: ${AI_SERVICE_URL:http://localhost:8081}
+  rate-limit:
+    free-tier-monthly-questions: 10
+    free-tier-monthly-voice: 5

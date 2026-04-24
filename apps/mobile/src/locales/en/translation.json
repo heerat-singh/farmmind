@@ -1,0 +1,76 @@
+{
+  "onboarding": {
+    "selectLanguage": "Select Your Language",
+    "farmLocation": "Where is your farm?",
+    "farmType": "What type of farm?",
+    "crops": "What do you grow?",
+    "continue": "Continue",
+    "skip": "Skip for now",
+    "finish": "Get Started",
+    "useMyLocation": "Use My Location",
+    "farmTypes": {
+      "vegetable": "Vegetable",
+      "grain": "Grain",
+      "orchard": "Orchard",
+      "greenhouse": "Greenhouse",
+      "mixed": "Mixed",
+      "other": "Other"
+    }
+  },
+  "auth": {
+    "login": "Log In",
+    "register": "Create Account",
+    "email": "Email",
+    "password": "Password",
+    "fullName": "Full Name",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "signUp": "Sign Up",
+    "signIn": "Sign In"
+  },
+  "chat": {
+    "placeholder": "Ask a farming question...",
+    "send": "Send",
+    "thinking": "FarmMind is thinking...",
+    "photoDiagnosis": "Diagnose a plant",
+    "voiceInput": "Hold to record",
+    "questionsLeft": "{{count}} questions left this month",
+    "upgradePrompt": "Upgrade to ask unlimited questions",
+    "shareResponse": "Share",
+    "copyResponse": "Copy"
+  },
+  "farm": {
+    "myFarm": "My Farm",
+    "addFarm": "Add Farm",
+    "editFarm": "Edit Farm",
+    "farmName": "Farm Name",
+    "acreage": "Acreage (acres)",
+    "crops": "Crops",
+    "addCrop": "Add Crop",
+    "weather": "Weather",
+    "frostWarning": "Frost Warning"
+  },
+  "subscription": {
+    "free": "Free",
+    "grower": "Grower",
+    "pro": "Pro",
+    "upgrade": "Upgrade",
+    "month": "/month",
+    "perMonth": "per month"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "notifications": "Notifications",
+    "subscription": "Subscription",
+    "darkMode": "Dark Mode",
+    "about": "About",
+    "signOut": "Sign Out"
+  },
+  "errors": {
+    "network": "No internet connection",
+    "generic": "Something went wrong. Please try again.",
+    "rateLimitReached": "Monthly question limit reached. Upgrade to continue."
+  }
+}

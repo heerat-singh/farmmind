@@ -1,0 +1,29 @@
+{
+  "onboarding": {
+    "selectLanguage": "ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ",
+    "farmLocation": "ਤੁਹਾਡਾ ਖੇਤ ਕਿੱਥੇ ਹੈ?",
+    "farmType": "ਕਿਸ ਕਿਸਮ ਦਾ ਖੇਤ?",
+    "crops": "ਤੁਸੀਂ ਕੀ ਉਗਾਉਂਦੇ ਹੋ?",
+    "continue": "ਜਾਰੀ ਰੱਖੋ",
+    "skip": "ਹੁਣੇ ਛੱਡੋ",
+    "finish": "ਸ਼ੁਰੂ ਕਰੋ",
+    "useMyLocation": "ਮੇਰੀ ਸਥਿਤੀ ਵਰਤੋ"
+  },
+  "auth": {
+    "login": "ਲੌਗ ਇਨ",
+    "register": "ਖਾਤਾ ਬਣਾਓ",
+    "email": "ਈਮੇਲ",
+    "password": "ਪਾਸਵਰਡ",
+    "fullName": "ਪੂਰਾ ਨਾਮ"
+  },
+  "chat": {
+    "placeholder": "ਖੇਤੀ ਸਵਾਲ ਪੁੱਛੋ...",
+    "send": "ਭੇਜੋ",
+    "thinking": "FarmMind ਸੋਚ ਰਿਹਾ ਹੈ...",
+    "questionsLeft": "ਇਸ ਮਹੀਨੇ {{count}} ਸਵਾਲ ਬਾਕੀ"
+  },
+  "errors": {
+    "network": "ਇੰਟਰਨੈੱਟ ਕੁਨੈਕਸ਼ਨ ਨਹੀਂ",
+    "generic": "ਕੁਝ ਗਲਤ ਹੋਇਆ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+  }
+}

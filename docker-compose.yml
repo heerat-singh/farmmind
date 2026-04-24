@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: farmmind-postgres
+    environment:
+      POSTGRES_DB: farmmind
+      POSTGRES_USER: farmmind
+      POSTGRES_PASSWORD: farmmind_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./services/api-gateway/src/main/resources/db/migration:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U farmmind"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: farmmind-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --maxmemory 256mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  api-gateway:
+    build: ./services/api-gateway
+    container_name: farmmind-api-gateway
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/farmmind
+      SPRING_DATASOURCE_USERNAME: farmmind
+      SPRING_DATASOURCE_PASSWORD: farmmind_dev
+      SPRING_REDIS_HOST: redis
+      SPRING_REDIS_PORT: 6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    profiles: ["full"]
+
+  ai-service:
+    build: ./services/ai-service
+    container_name: farmmind-ai-service
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/farmmind
+      SPRING_DATASOURCE_USERNAME: farmmind
+      SPRING_DATASOURCE_PASSWORD: farmmind_dev
+      SPRING_REDIS_HOST: redis
+      SPRING_REDIS_PORT: 6379
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      TOMORROW_IO_API_KEY: ${TOMORROW_IO_API_KEY}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    profiles: ["full"]
+
+volumes:
+  postgres_data:
