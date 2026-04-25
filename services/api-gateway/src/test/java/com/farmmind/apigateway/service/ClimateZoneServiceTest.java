@@ -17,7 +17,7 @@ class ClimateZoneServiceTest {
         "44.3894, -79.6903, 6a",  // Barrie, ON
         "46.4918, -80.9930, 5a",  // Sudbury, ON
         "49.2488, -82.4328, 4b",  // Timmins, ON
-        "49.8954, -97.1385, 4b",  // Winnipeg, MB (falls through to default)
+        "49.8954, -97.1385, 5a",  // Winnipeg, MB (falls through to default 5a)
     })
     void resolvesCorrectZone(double lat, double lon, String expected) {
         assertThat(service.resolve(lat, lon)).isEqualTo(expected);

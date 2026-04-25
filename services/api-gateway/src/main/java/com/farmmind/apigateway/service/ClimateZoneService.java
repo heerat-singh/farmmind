@@ -32,16 +32,16 @@ public class ClimateZoneService {
     }
 
     private String resolveOntario(double lat, double lon) {
-        // Southern Ontario (GTA, Brampton, Hamilton area) — warmest
-        if (lat < 44.5) return "6b";
-        // Central Ontario (Barrie, Orillia)
-        if (lat < 45.5) return "6a";
-        // Northern shore of Lake Huron / Georgian Bay
-        if (lat < 46.5) return "5b";
-        // Sudbury / Sault Ste. Marie
-        if (lat < 47.5) return "5a";
-        // Northern Ontario
-        if (lat < 50.0) return "4b";
+        // Southern Ontario (GTA, Brampton, Hamilton, Niagara) — zone 6b
+        if (lat < 43.8) return "6b";
+        // Central/mid Ontario (Barrie, Orillia, Owen Sound) — zone 6a
+        if (lat < 45.2) return "6a";
+        // Georgian Bay / Muskoka — zone 5b
+        if (lat < 46.0) return "5b";
+        // Sudbury / Sault Ste. Marie — zone 5a
+        if (lat < 48.5) return "5a";
+        // Northern Ontario (Timmins, Thunder Bay) — zone 4b
+        if (lat < 51.0) return "4b";
         // Far north
         return "3b";
     }
